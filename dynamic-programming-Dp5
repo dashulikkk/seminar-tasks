@@ -1,0 +1,23 @@
+using System;
+
+public static class MaxSumSubarray
+{
+    public static int FindMaxSumSubarray(int[] arr)
+    {
+        if (arr.Length == 0)
+        {
+            return 0;
+        }
+
+        int maxSoFar = arr[0];
+        int maxEndingHere = arr[0];
+
+        for (int i = 1; i < arr.Length; i++)
+        {
+            maxEndingHere = Math.Max(arr[i], maxEndingHere + arr[i]);
+            maxSoFar = Math.Max(maxSoFar, maxEndingHere);
+        }
+
+        return maxSoFar;
+    }
+}
